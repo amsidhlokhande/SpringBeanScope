@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    
+    
+    <bean id="amsidhPerson" class="com.amsidh.mvc.beans.Person"  scope="prototype">
+       <constructor-arg name="personId" value="123"/>
+       <constructor-arg name="personName" value="Amsidh Lokhande"/>
+       <constructor-arg name="address" ref="lohegaonAddress"/>
+    </bean>
+    
+    <bean id="lohegaonLocation" class="com.amsidh.mvc.beans.Location" scope="prototype">
+       <constructor-arg name="longitude" value="34343.34"/>
+       <constructor-arg name="latitude" value="453.23"/>
+    </bean>
+    
+    <bean id="lohegaonAddress" class="com.amsidh.mvc.beans.Address" scope="prototype">
+       <constructor-arg name="city" value="Lohegaon"/>
+       <constructor-arg name="state" value="Maharashtra"/>
+       <constructor-arg name="pincode" value="411047"/>
+       <constructor-arg name="addressId" value="111"/>
+       <constructor-arg name="location">
+         <bean class="com.amsidh.mvc.beans.Location" scope="singleton">
+            <constructor-arg name="longitude" value="34343.34"/>
+            <constructor-arg name="latitude" value="453.23"/>
+         </bean>
+       </constructor-arg>
+       
+    </bean>
+    
+    
+    <bean id="demo1" class="com.amsidh.mvc.beans.Demo">
+        
+    </bean>
+    <bean id="demo2" class="com.amsidh.mvc.beans.Demo">
+        <constructor-arg name="id" value="123"/>
+        <constructor-arg name="name" value="Demo Name"/>
+    </bean>
+    
+    <bean id="singleton5" class="com.amsidh.mvc.beans.SingletonDemo"/>
+    <bean id="singleton6" class="com.amsidh.mvc.beans.SingletonDemo"/>
+    <bean id="singleton7" class="com.amsidh.mvc.beans.SingletonDemo"/>
+    <bean id="singleton8" class="com.amsidh.mvc.beans.SingletonDemo"/>
+
+</beans>
